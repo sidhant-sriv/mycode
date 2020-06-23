@@ -1,7 +1,8 @@
 //This the Quicksort algorithm in JS.
-var unsorted = [53, -68, 14, -52, -37, 10, -1, -55, -37, -23, 12, 46, -50, 45, -9, -32, -40, -60, 50, -32, -22, -15, -29, 2, 41, -18, 13, 56, 14, 32, -21, -41, 40, -30, -19, 35, -10, 46, -24, 37, -54, 3, -20, 28, -29, 41, 60, 59, -10, 28]
-//swap function
 
+
+
+//swap function
 function swap(arr, left, right) {
   var temp = arr[left];
   arr[left] = arr[right];
@@ -44,5 +45,6 @@ function sort(arr, left, right) {
   }
   return arr;
 }
-
+//driver code
+var unsorted = [53, -68, 14, -52, -37, 10, -1, -55, -37, -23, 12, 46, -50, 45, -9, -32, -40, -60, 50, -32, -22, -15, -29, 2, 41, -18, 13, 56, 14, 32, -21, -41, 40, -30, -19, 35, -10, 46, -24, 37, -54, 3, -20, 28, -29, 41, 60, 59, -10, 28]
 console.log(sort(unsorted, 0, unsorted.length - 1));
