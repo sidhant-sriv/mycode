@@ -1,54 +1,51 @@
 from selenium import webdriver
+import schedule
 from time import sleep
 from selenium.webdriver.chrome.options import Options
 chrome_options = Options()
-def getToClass(username,pw):
-    # driver = webdriver.Chrome( "C:\Program Files (x86)\chromedriver.exe")
+
+
+def getToClass(username, pw):
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)
-    driver = webdriver.Chrome(chrome_options=options, executable_path=r'C:\Program Files (x86)\chromedriver.exe')
+    driver = webdriver.Chrome(
+        options=options, executable_path=r'C:\Program Files (x86)\chromedriver.exe')
+    # open website
     driver.get("https://entrar.in/")
 
     sleep(1)
-    driver.find_element_by_xpath("/html/body/div[1]/header/nav/div/div/a").click()
+    # find and click the login button
+    driver.find_element_by_xpath(
+        "/html/body/div[1]/header/nav/div/div/a").click()
     sleep(1)
+    # input username
     driver.find_element_by_xpath("/html/body/div[2]/div/div[1]/form/div[2]/input")\
         .send_keys(username)
+    # input password
     driver.find_element_by_xpath("/html/body/div[2]/div/div[1]/form/div[3]/input")\
         .send_keys(pw)
     sleep(1)
-    driver.find_element_by_xpath("/html/body/div[2]/div/div[1]/form/div[5]/div/button").click()
+    # click the submit button
+    driver.find_element_by_xpath(
+        "/html/body/div[2]/div/div[1]/form/div[5]/div/button").click()
     sleep(4)
+    # click the classroom option
+
     driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[2]/div/nav/div[2]/div/div[1]/div/ul/li[8]/a/span[2]")\
         .click()
     sleep(4)
-getToClass('BE/0007331','Sidhant123')
+    #click the join button
 
-#add this later
+    #switch tabs
 
-'''
-
-import schedule
-import time
-
-def job():
-    print("I'm working...")
-
-schedule.every(10).minutes.do(job)
-schedule.every().hour.do(job)
-schedule.every().day.at("10:30").do(job)
-schedule.every().monday.do(job)
-schedule.every().wednesday.at("13:15").do(job)
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
-
-'''
+    #refresh OR search button
+    driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[2]/div/div/div/div/div/div[2]/div[1]/div/div/div[2]/div/input")\
+        .click()
+getToClass('BE/0007331', 'Sidhant123')
 
 
-#TODO:
-#check for join button 
+# TODO:
+# check for join button
 # switch tab
 # start again after specified time
-#check for refresh if button not there
+# check for refresh if button not there
