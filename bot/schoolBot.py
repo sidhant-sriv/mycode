@@ -34,13 +34,19 @@ def getToClass(username, pw):
     driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[2]/div/nav/div[2]/div/div[1]/div/ul/li[8]/a/span[2]")\
         .click()
     sleep(4)
-    #click the join button
 
-    #switch tabs
-
-    #refresh OR search button
+    # refresh OR search button
     driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[2]/div/div/div/div/div/div[2]/div[1]/div/div/div[2]/div/input")\
         .click()
+    # click the join button
+    driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/table/tbody/tr[1]/td[4]/a")\
+        .click()
+    # click listen only
+    driver.find_element_by_xpath("/html/body/div[2]/div/div/div[1]/div/div/span/button[2]/span[1]/i")\
+        .click()
+    # switch tabs
+
+
 getToClass('BE/0007331', 'Sidhant123')
 
 
