@@ -1,0 +1,10 @@
+body{
+    font-family: 'Recursive', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+div {
+    font-size: xx-large;
+    margin: 40px;
+
+}
