@@ -2,8 +2,11 @@ from selenium import webdriver
 import schedule
 from time import sleep
 from selenium.webdriver.chrome.options import Options
-chrome_options = Options()
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
+chrome_options = Options()
 
 def getToClass(username, pw):
     options = webdriver.ChromeOptions()
@@ -39,8 +42,10 @@ def getToClass(username, pw):
     driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[2]/div/div/div/div/div/div[2]/div[1]/div/div/div[2]/div/input")\
         .click()
     # click the join button
-    driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/table/tbody/tr[1]/td[4]/a")\
-        .click()
+    WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[2]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/table/tbody/tr[1]/td[4]/a'))).click()
+
+    # driver.find_element_by_xpath("/html/body/div[1]/div[2]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div/table/tbody/tr[1]/td[4]/a")\
+    #     .click()
     # click listen only
     driver.find_element_by_xpath("/html/body/div[2]/div/div/div[1]/div/div/span/button[2]/span[1]/i")\
         .click()
@@ -48,10 +53,3 @@ def getToClass(username, pw):
 
 
 getToClass('BE/0007331', 'Sidhant123')
-
-
-# TODO:
-# check for join button
-# switch tab
-# start again after specified time
-# check for refresh if button not there
